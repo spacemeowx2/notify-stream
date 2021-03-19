@@ -24,7 +24,7 @@ impl Stream for NotifyStream {
 pub fn notify_stream<P: AsRef<Path>>(
     path: P,
     recursive_mode: RecursiveMode,
-) -> notify::Result<impl Stream<Item = StreamItem>> {
+) -> notify::Result<NotifyStream> {
     let (tx, rx) = mpsc::unbounded();
 
     let mut watcher: RecommendedWatcher =
